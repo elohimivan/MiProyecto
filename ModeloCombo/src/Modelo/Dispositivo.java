@@ -5,6 +5,7 @@ public class Dispositivo
   public int id;
   public String nombre;
   public float precio;
+  public float otro;
   
   public Dispositivo() {}
   
