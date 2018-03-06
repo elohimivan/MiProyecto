@@ -6,6 +6,7 @@ public class Dispositivo
   public String nombre;
   public float precio;
   public float otro;
+  public float elOtro;
   
   public Dispositivo() {}
   
