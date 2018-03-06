@@ -5,7 +5,6 @@ import Modelo.ModeloCombobox;
 import Vista.Vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
@@ -28,6 +27,7 @@ public class Controlador
     this.dispositivos.add(new Dispositivo(1, "Mouse", 25.0F));
     this.dispositivos.add(new Dispositivo(2, "Teclado", 25.0F));
     this.dispositivos.add(new Dispositivo(3, "CPU", 25.0F));
+    this.dispositivos.add(new Dispositivo(6, "Monitor", 25.0F));
     
     ModeloCombobox modelo = new ModeloCombobox(this.dispositivos);
     this.vista.combo.setModel(modelo);

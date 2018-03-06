@@ -5,47 +5,50 @@ import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
-public class ModeloCombobox
-  extends AbstractListModel
+public class ModeloCombobox extends AbstractListModel
   implements ComboBoxModel
 {
   List<Dispositivo> lista;
+  String seleccion = "";
+  int indexSeleccion = -1;
   
   public ModeloCombobox(List<Dispositivo> lista)
   {
     this.lista = lista;
   }
   
-  String seleccion = "";
-  int indexSeleccion = -1;
-  
+  @Override
   public Object getElementAt(int index)
   {
     return ((Dispositivo)this.lista.get(index)).getNombre();
   }
   
+  @Override
   public int getSize()
   {
     return this.lista.size();
   }
   
+  @Override
   public void setSelectedItem(Object unItem)
   {
     Iterator<Dispositivo> it = this.lista.iterator();
-    int x = 0;
+
     while (it.hasNext())
     {
-      String s = ((Dispositivo)it.next()).getNombre().trim();
+      Dispositivo di=(Dispositivo)it.next();
+      String s = di.getNombre().trim();
       if (s.compareTo(unItem.toString().trim()) == 0)
       {
         this.seleccion = s;
-        this.indexSeleccion = x;
+        this.indexSeleccion = di.getId();
         return;
       }
-      x++;
+
     }
   }
   
+  @Override
   public Object getSelectedItem()
   {
     return this.seleccion;
